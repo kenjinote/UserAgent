@@ -71,6 +71,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 		}
 		SendMessage(hWnd, WM_APP, 0, 0);
 		break;
+	case WM_SETFOCUS:
+		SendMessage(hEdit, EM_SETSEL, 0, -1);
+		SetFocus(hEdit);
+		break;
 	case WM_SIZE:
 		MoveWindow(hEdit, POINT2PIXEL(10), POINT2PIXEL(10), LOWORD(lParam) - POINT2PIXEL(20), HIWORD(lParam) - POINT2PIXEL(20), TRUE);
 		break;
